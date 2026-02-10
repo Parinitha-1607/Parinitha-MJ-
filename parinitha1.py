@@ -1,5 +1,10 @@
-try:
-    with open("nonexistent_file.txt", "r") as f:
-        content = f.read()
-except FileNotFoundError:
-    print("Error: File not found!")
+import mysql.connector
+host="localhost"
+user="root"
+password="root"
+db="parinitha1"
+conn=mysql.connector.connect(host=host,user=user,password=password,db=db)
+cur=conn.cursor()
+cur.execute("select * from Customers")
+res=cur.fetchone()
+print(res)
